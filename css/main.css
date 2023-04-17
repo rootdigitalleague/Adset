@@ -1,0 +1,544 @@
+@font-face {
+  font-family: 'Luminari';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Luminari'), url('../fonts/Luminari-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Baskerville Old Face";
+  font-style: normal;
+  font-weight: normal;
+  src: local("../fonts/Baskerville Ten Pro Regular.otf"), url("../fonts/Baskerville10Pro.woff") format('woff');
+}
+
+html {
+  background: url("../img/root-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+table {
+  /*border-collapse: collapse;*/
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+div.players {
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+}
+
+tr {
+  border: solid;
+  border-width: 1px 0;
+}
+
+tr:first-child {
+  border-top: none;
+}
+tr:last-child {
+  border-bottom: none;
+}
+
+thead > tr:last-child{
+  border-bottom: solid;
+}
+
+form{
+  background-image: url("../img/Medium_Box.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  min-width: 1000px;
+  text-align: center;
+  padding: 25px 5px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 50px;
+  position: relative;
+  float: left;
+}
+
+div#gameOptions img {
+  height:40px;
+  border-radius:5px;
+}
+
+div#gameOptions  img.map{
+  width:58px;
+  height: auto;
+}
+div#gameOptsConfirmation img.map {
+  width:58px;
+  height: auto;
+}
+
+div#gameOptsConfirmation img {
+  height:40px;
+  border-radius:5px;
+  display: none;
+}
+
+div.shield {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0px;
+  left:0px;
+  z-index: 3;
+  background: rgba(0, 0, 0, .5);
+  display: none;
+}
+
+ul.errors {
+   font-size: large;
+   list-style: none;
+   color: red;
+   display: none;
+}
+
+ul.rules {
+  display:none;
+  margin: 0;
+  float: right;
+  font-size: small;
+  text-align: left;
+  list-style: disc;
+}
+ul.rules  li {
+  word-wrap: break-word;
+  width: 70%;
+}
+
+h2, h3, h4, button {
+  font-family: Luminari, serif;
+  margin: 0;
+}
+
+button{
+  text-align: center;
+  margin-top: 10px;
+}
+
+button.smallBox{
+
+}
+
+h1 {
+  font-family: Luminari, serif;
+  font-size: xx-large;
+  text-align: center;
+  margin: 0;
+}
+
+span.Options {
+  font-family: Luminari, serif;
+  font-size: large;
+}
+
+label, .header {
+  padding-right: 5px;
+}
+ .header {
+   font-family: Luminari, serif;
+   font-size: x-large;
+ }
+
+label {
+  font-size: larger;
+  font-family: "Baskerville Old Face", serif;
+}
+td {
+  padding-right: 10px;
+}
+
+.input-hidden {
+  /* For Hiding Radio Button Circles */
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="radio"]:checked + label > img {
+  background-color: goldenrod;
+}
+
+input[type="radio"] + label > img {
+  border: 1px rgb(0, 0, 0);
+  padding: 5px;
+  transition: 500ms all;
+}
+input[type="number"]{
+  min-width: 2em;
+}
+
+div#resultsBox{
+  background-image: url("../img/Small_Dark_Box.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  width: 240px;
+  margin: auto;
+  position: absolute;
+  top: 40px;
+  left: 380px;
+  z-index: 10;
+  display: none;
+}
+
+div#resultsBox div.buttons {
+  float: none;
+  padding-bottom: 20px;
+  margin:auto;
+  display: inline-block;
+  align-content: center;
+}
+
+div#resultsBox div.buttons button{
+  align-content: center;
+  margin: 10px;
+}
+
+div#resultsBox div.result {
+  background-image: url("../img/Small_Box.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  float: left;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  position: relative;
+  margin: 5px;
+}
+
+div#resultsBox div.result img {
+  width: 50px;
+  padding-top: 5px;
+  float: left;
+}
+
+div.score{
+  background-image: url("../img/VP_Frills.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  width: 30px;
+  height:30px;
+  float: left;
+  padding-left: 5px;
+  padding-top: 5px;
+  margin-top: 20px;
+  padding-right: 8px;
+  font-size: large;
+}
+
+div.score span{
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+div#resultsBox div.result img.hide{
+  display: none;
+}
+
+div#resultsBox div.result img.dom{
+  position: absolute;
+  top: 48px;
+  left: 59px;
+  width: 25px;
+  height: 25px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
+
+div#resultsBox div.result span.highlight{  border-radius: 1em ;
+  background-image: linear-gradient(
+    -100deg,
+    rgba(255, 224, 0, 0.2),
+    rgba(255, 224, 0, 0.7) 95%,
+    rgba(255, 224, 0, 0.1)
+  );
+}
+
+div#resultsBox div.result img.winner {
+  position: absolute;
+  top: 55px;
+  left: 18px;
+  z-index: 4;
+  width: 20px;
+  height: 20px;
+  rotate: 45deg;
+}
+
+div#resultsBox div.result img.coalition{
+  position: absolute;
+  top: 48px;
+  left: 62px;
+  width: 25px;
+  height: 25px;
+  padding-bottom: 10px;
+  padding-left: 3px;
+}
+div#resultsBox div.result span.playerName{
+  text-align: center;
+  font-family: Luminari;
+  width: 100px;
+  display: inline-block;
+  align-content: center;
+}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textarea
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `content editable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

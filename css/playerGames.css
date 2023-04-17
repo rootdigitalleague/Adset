@@ -1,0 +1,140 @@
+
+tr img {
+  height: 25px;
+  border-radius:5px;
+  display: inline-block;
+}
+
+tr img.map {
+  height: auto;
+  width: 36px;
+}
+
+ div#filterOptions img{
+   height:35px;
+   border-radius: 5px;
+   display: inline-flex;
+   margin: 2px;
+ }
+
+ div#subFilterOptions{
+   display: flex;
+   flex-direction: row;
+ }
+ div#filterOptions{
+   font-size: large;
+   font-family: Luminari;
+   background-image: url("../img/Top_Bar.png");
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   background-position: center center;
+
+   text-align: center;
+   padding: 25px 5px;
+   margin: 25px;
+   display: flex;
+   flex-direction: column;
+ }
+
+ div#statsBlock{
+   clear: left;
+   font-size: Medium;
+   font-family: Luminari;
+   background-image: url("../img/Top_Bar.png");
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   background-position: center center;
+   min-width: 500px;
+   min-height: 240px;
+   text-align: center;
+   padding: 25px 5px;
+   margin: 25px;
+ }
+div.playerStats{
+  width: 25%;
+
+  float:left;
+}
+ .mainBoard{
+
+  background: transparent;
+ }
+ table{
+   background: #fae5b3;
+   padding: 15px;
+   margin: 25px;
+   width: 95%;
+ }
+ td{
+   padding: 5px 0px 0px 0px;
+ }
+ span.score{
+   background-image: url("../img/VP_Frills.png");
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   background-position: center bottom;
+   width: 25px;
+   height:25px;
+   padding-left: 8px;
+   padding-right: 8px;
+   display: inline-block;
+   font-size: large;
+   text-align: center;
+ }
+ span.score img{
+   padding-bottom: 10px;
+ }
+td.winner {
+
+}
+
+td img{
+  padding-bottom: 7px;
+}
+
+td{
+  text-align: left;
+  font-family: "Baskerville Old Face";
+}
+ input[type="checkbox"]:checked + label > img  {
+   background-color: goldenrod;
+ }
+
+ input[type="checkbox"] + label > img  {
+   border: 1px rgb(0, 0, 0);
+   padding: 5px;
+   transition: 500ms all;
+ }
+ input[type="checkbox"]:checked + label > div  {
+   background-color: goldenrod;
+ }
+
+ input[type="checkbox"] + label > div  {
+   margin: 2px;
+   border-radius:5px;
+   display: inline-block;
+   border: 1px rgb(0, 0, 0);
+   padding: 5px;
+   transition: 500ms all;
+ }
+
+div#seasonsOpts {
+  width: 20%;
+}
+div#gameOpts{
+  width:15%;
+}
+div#factionOpts{
+  width:30%;
+}
+div#turnOrderOpts {
+  width: 10%;
+}
+div#victoryOpts{
+  width: 15%;
+}
+
+div.filterGroup{
+  float: left;
+   margin: 5px
+}
