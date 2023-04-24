@@ -26,6 +26,8 @@ const domImages = {
   'Fox':'Fox_Icon.png',
   'Mouse':'Mouse_Icon.png'
 }
+import {registeredPlayers} from "./auto-complete";
+
 let resultTemplate;
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
@@ -162,6 +164,9 @@ function findPartnerId(player){
 function validatePlayerName(id){
   if("" === getPlayerName(id)){
     addError(getPlayerDisplayName(id) + " needs a name!");
+  }
+  if(!registeredPlayers.includes(getPlayerName(id))){
+    addError(getPlayerName(id) + " is not a registered player!");
   }
 }
 function validatePlayerFaction(id,  idx){
