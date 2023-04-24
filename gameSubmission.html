@@ -36,7 +36,7 @@
       <tr id="player1">
         <td><label class="name" for="First Player">First Player</label></td>
         <td><input id="playerName1" name="First Player" type="text" class="suggest" required /></td>
-        <td><select required class="factionSelect" id="First Player Faction" name="First Player Faction" onchange="ui.onFactionSelect('player1')">
+        <td><select required class="factionSelect" id="First Player Faction" name="First Player Faction" onchange="gameSubmission.onFactionSelect('player1')">
           <option value="">--Select Faction--</option>
           <option value="Eyrie Dynasties">Eyrie Dynasties</option>
           <option value="Lizard Cult">Lizard Cult</option>
@@ -59,7 +59,7 @@
         </select>
         </td>
         <td>
-          <label class="domSelect" for="playerDom1Select">Dominance</label><input id="playerDom1Select" type="checkbox" onchange="ui.onDomSelect('player1')">
+          <label class="domSelect" for="playerDom1Select">Dominance</label><input id="playerDom1Select" type="checkbox" onchange="gameSubmission.onDomSelect('player1')">
           <span class="points" id="player1Points"><label for="playerScore1">Score:</label><input id="playerScore1" type="number" min="0" max="50" maxlength="2" size="2"/></span>
           <span class="dom" id="player1Dom" style="display: none"><label for="playerDomSuit1">Suit:</label>
       <select id="playerDomSuit1">
@@ -88,7 +88,7 @@
       <tr id="player2">
         <td><label class="name" for="Second Player">Second Player</label></td>
         <td> <input id="playerName2" class="suggest" name="Second Player" type="text" required/></td>
-        <td><select required class="factionSelect" id="Second Player Faction" name="Second Player Faction" onchange="ui.onFactionSelect('player2')">
+        <td><select required class="factionSelect" id="Second Player Faction" name="Second Player Faction" onchange="gameSubmission.onFactionSelect('player2')">
           <option value="">--Select Faction--</option>
           <option value="Eyrie Dynasties">Eyrie Dynasties</option>
           <option value="Lizard Cult">Lizard Cult</option>
@@ -109,7 +109,7 @@
           <option value="Keepers in Iron" disabled>Keepers in Iron</option>
           <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
         </select></td>
-        <td><label class="domSelect" for="playerDom2Select">Dominance</label><input id="playerDom2Select" type="checkbox" onchange="ui.onDomSelect('player2')">
+        <td><label class="domSelect" for="playerDom2Select">Dominance</label><input id="playerDom2Select" type="checkbox" onchange="gameSubmission.onDomSelect('player2')">
           <span class="points" id="player2Points"><label for="playerScore2">Score:</label><input id="playerScore2" maxlength="2" min="0" max="50" type="number" size="2"/></span>
           <span class="dom" id="player2Dom" style="display: none"><label for="playerDomSuit2">Suit:</label>
       <select id="playerDomSuit2">
@@ -136,7 +136,7 @@
       <tr id="player3">
         <td><label class="name" for="Third Player">Third Player</label></td>
         <td><input id="playerName3" name="Third Player" class="suggest" type="text" required/></td>
-        <td><select required class="factionSelect" id="Third Player Faction" name="Third Player Faction" onchange="ui.onFactionSelect('player3')">
+        <td><select required class="factionSelect" id="Third Player Faction" name="Third Player Faction" onchange="gameSubmission.onFactionSelect('player3')">
           <option value="">--Select Faction--</option>
           <option value="Eyrie Dynasties">Eyrie Dynasties</option>
           <option value="Lizard Cult">Lizard Cult</option>
@@ -158,7 +158,7 @@
           <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
         </select></td>
         <td>
-          <label class="domSelect" for="playerDom3Select">Dominance</label><input id="playerDom3Select" type="checkbox" onchange="ui.onDomSelect('player3')">
+          <label class="domSelect" for="playerDom3Select">Dominance</label><input id="playerDom3Select" type="checkbox" onchange="gameSubmission.onDomSelect('player3')">
           <span class="points" id="player3Points"><label for="playerScore3">Score:</label><input id="playerScore3" type="number" min="0" max="50" maxlength="2" size="2"/></span>
           <span class="dom" id="player3Dom" style="display: none"><label for="playerDomSuit3">Suit:</label>
       <select id="playerDomSuit3">
@@ -181,7 +181,7 @@
         <td>
           <label class="name" for="Fourth Player">Fourth Player</label></td>
         <td><input id="playerName4" class="suggest" name="Fourth Player" type="text" required/></td>
-        <td><select required class="factionSelect" id="Fourth Player Faction" name="Fourth Player Faction" onchange="ui.onFactionSelect('player4')">
+        <td><select required class="factionSelect" id="Fourth Player Faction" name="Fourth Player Faction" onchange="gameSubmission.onFactionSelect('player4')">
           <option value="">--Select Faction--</option>
           <option value="Eyrie Dynasties">Eyrie Dynasties</option>
           <option value="Lizard Cult">Lizard Cult</option>
@@ -202,7 +202,7 @@
           <option value="Keepers in Iron" disabled>Keepers in Iron</option>
           <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
         </select></td>
-        <td> <label class="domSelect" for="playerDom4Select">Dominance</label><input id="playerDom4Select" type="checkbox" onchange="ui.onDomSelect('player4')">
+        <td> <label class="domSelect" for="playerDom4Select">Dominance</label><input id="playerDom4Select" type="checkbox" onchange="gameSubmission.onDomSelect('player4')">
           <span class="points" id="player4Points"><label for="playerScore4">Score:</label><input id="playerScore4" type="number"  min="0" max="50" size="2"/></span>
           <span class="dom" id="player4Dom" style="display: none"><label for="playerDomSuit4">Suit:</label>
       <select id="playerDomSuit4">
@@ -269,13 +269,13 @@
     </div>
     <div>
       <span class="Options map">Map:</span>
-      <input name="Map" class="input-hidden" type="radio" id="Autumn"  checked value="Autumn" onclick="ui.onMapSelect(this)"/>
+      <input name="Map" class="input-hidden" type="radio" id="Autumn"  checked value="Autumn" onclick="gameSubmission.onMapSelect(this)"/>
       <label for="Autumn"><img src="img/autumn.jpg" class="map" alt="Autumn"></label>
-      <input name="Map" type="radio" class="input-hidden" id="Winter" value="Winter" onclick="ui.onMapSelect(this)"/>
+      <input name="Map" type="radio" class="input-hidden" id="Winter" value="Winter" onclick="gameSubmission.onMapSelect(this)"/>
       <label for="Winter"><img src="img/winter.jpg" class="map" alt="Winter"></label>
-      <input name="Map"  class="input-hidden" type="radio" id="Lake" value="Lake" onclick="ui.onMapSelect(this)">
+      <input name="Map"  class="input-hidden" type="radio" id="Lake" value="Lake" onclick="gameSubmission.onMapSelect(this)">
       <label for="Lake"><img src="img/lake.png" class="map" alt="Lake"></label>
-      <input name="Map"  class="input-hidden" type="radio" id="Mountain" value="Mountain" onclick="ui.onMapSelect(this)">
+      <input name="Map"  class="input-hidden" type="radio" id="Mountain" value="Mountain" onclick="gameSubmission.onMapSelect(this)">
       <label for="Mountain"><img src="img/mountain.png" class="map" alt="Mountain"></label>
       <span class="Options"></span>
       <input name="Clearing Distribution" class="input-hidden" type="checkbox" id="Random" value="Random">

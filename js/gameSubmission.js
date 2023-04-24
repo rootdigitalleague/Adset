@@ -395,7 +395,7 @@ let ui = {
   'onFactionSelect':onFactionSelect
 };
 
-window.ui = ui;
+window.gameSubmission = ui;
 
 function onMapSelect(e){
   let clearingDist = document.getElementById('Random');
