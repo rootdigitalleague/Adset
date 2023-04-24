@@ -26,7 +26,8 @@ const domImages = {
   'Fox':'Fox_Icon.png',
   'Mouse':'Mouse_Icon.png'
 }
-import {registeredPlayers} from "./auto-complete";
+const {default: defaultComponent, registeredPlayers} = await import("./auto-complete");
+
 
 let resultTemplate;
 const registerServiceWorker = async () => {
