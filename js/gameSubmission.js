@@ -171,6 +171,10 @@ function validatePlayerName(id){
 }
 function validatePlayerFaction(id,  idx){
   let faction = getSelectedFaction(id);
+  let undrafted = document.getElementById('Unselected Faction').value;
+  if(faction === undrafted){
+    addError(getPlayerDisplayName(id) + " has faction "+faction + " which is also selected as the undrafted faction!");
+  }
   if (faction === ""){
     addError(getPlayerDisplayName(id) + " needs a faction selection!");
   }else{
