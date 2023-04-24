@@ -1,8 +1,8 @@
 
 const GOOGLE_SHEET_FETCH_ALL_PLAYER_NAMES =
   "https://script.google.com/macros/s/AKfycbyHLf5q-A9gV0iM1j0Uldxr1DTWCob4cGXLgQcwJZVbM1UIZXYNGdn0HbdWlIijdqcd/exec";
-let registeredPlayers = [];
-export { registeredPlayers};
+var registeredPlayers = [];
+
 fetch(GOOGLE_SHEET_FETCH_ALL_PLAYER_NAMES).then((response)=> response.json()).then((data)=> {
   console.log(data);
   registeredPlayers = data;

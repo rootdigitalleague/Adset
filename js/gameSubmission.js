@@ -26,7 +26,6 @@ const domImages = {
   'Fox':'Fox_Icon.png',
   'Mouse':'Mouse_Icon.png'
 }
-const {default: defaultComponent, registeredPlayers} = await import("./auto-complete");
 
 
 let resultTemplate;
@@ -166,9 +165,9 @@ function validatePlayerName(id){
   if("" === getPlayerName(id)){
     addError(getPlayerDisplayName(id) + " needs a name!");
   }
-  if(!registeredPlayers.includes(getPlayerName(id))){
+ /* if(!registeredPlayers.includes(getPlayerName(id))){
     addError(getPlayerName(id) + " is not a registered player!");
-  }
+  }*/
 }
 function validatePlayerFaction(id,  idx){
   let faction = getSelectedFaction(id);
