@@ -1,3 +1,4 @@
+import {getRegisteredPlayers} from './auto-complete.js';
 const GOOGLE_SHEET_URL ="https://script.google.com/macros/s/AKfycbyklsiV4-HxLXcJf6Z8BVFOJWN0qFwlJ6S4ai-khZCk-W3PbVIoMB6XamoKKAYs0Urr/exec";
 const players = ['player1', 'player2', 'player3', 'player4'];
 const factionImages = {
@@ -29,6 +30,7 @@ const domImages = {
 
 
 let resultTemplate;
+let registeredPlayers;
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     try {
@@ -48,50 +50,6 @@ const registerServiceWorker = async () => {
 
 registerServiceWorker();
 
-function onMapSelect(e){
-  let clearingDist = document.getElementById('Random');
-  if(e.value == "Winter"){
-    clearingDist.checked = true;
-    clearingDist.disabled = true;
-  } else{
-    clearingDist.disabled = false;
-  }
-}
-
-function onFactionSelect(player){
-  let tr = document.getElementById(player);
-  let domLabel = tr.getElementsByClassName('domSelect')[0];
-  if (isVagabond(player)){
-    domLabel.textContent = 'Coalition';
-  } else{
-    domLabel.textContent = 'Dominance';
-  }
-  onDomSelect(player);
-}
-
-function onDomSelect(player){
-  let tr = document.getElementById(player);
-  let points = tr.getElementsByClassName('points')[0];
-  let coalition = tr.getElementsByClassName('coalition')[0];
-  let dominance = tr.getElementsByClassName('dom')[0];
-  if(isDomSelected(player)){
-    points.style.display = 'none';
-    if(isVagabond(player)){
-      dominance.style.display = 'none';
-      coalition.style.display = 'inline';
-    }else{
-      coalition.style.display = 'none';
-      coalition.getElementsByTagName('select').value= null;
-      dominance.style.display = 'inline';
-      dominance.getElementsByTagName("select").value = null
-    }
-  }else{
-    points.style.display = 'inline';
-    coalition.style.display = 'none';
-
-    dominance.style.display = 'none';
-  }
-}
 
 /*************************/
 function isCoalition(player){
@@ -165,9 +123,9 @@ function validatePlayerName(id){
   if("" === getPlayerName(id)){
     addError(getPlayerDisplayName(id) + " needs a name!");
   }
- /* if(!registeredPlayers.includes(getPlayerName(id))){
+  if(!registeredPlayers.includes(getPlayerName(id))){
     addError(getPlayerName(id) + " is not a registered player!");
-  }*/
+  }
 }
 function validatePlayerFaction(id,  idx){
   let faction = getSelectedFaction(id);
@@ -431,12 +389,66 @@ function toggleRules(){
     rules.style.display = 'none';
   }
 }
+let ui = {
+  'onMapSelect':onMapSelect,
+  'onDomSelect':onDomSelect,
+  'onFactionSelect':onFactionSelect
+};
+
+window.ui = ui;
+
+function onMapSelect(e){
+  let clearingDist = document.getElementById('Random');
+  if(e.value === "Winter"){
+    clearingDist.checked = true;
+    clearingDist.disabled = true;
+  } else{
+    clearingDist.disabled = false;
+  }
+}
+
+function onFactionSelect(player){
+  let tr = document.getElementById(player);
+  let domLabel = tr.getElementsByClassName('domSelect')[0];
+  if (isVagabond(player)){
+    domLabel.textContent = 'Coalition';
+  } else{
+    domLabel.textContent = 'Dominance';
+  }
+  onDomSelect(player);
+}
+
+function onDomSelect(player){
+  let tr = document.getElementById(player);
+  let points = tr.getElementsByClassName('points')[0];
+  let coalition = tr.getElementsByClassName('coalition')[0];
+  let dominance = tr.getElementsByClassName('dom')[0];
+  if(isDomSelected(player)){
+    points.style.display = 'none';
+    if(isVagabond(player)){
+      dominance.style.display = 'none';
+      coalition.style.display = 'inline';
+    }else{
+      coalition.style.display = 'none';
+      coalition.getElementsByTagName('select').value= null;
+      dominance.style.display = 'inline';
+      dominance.getElementsByTagName("select").value = null
+    }
+  }else{
+    points.style.display = 'inline';
+    coalition.style.display = 'none';
+
+    dominance.style.display = 'none';
+  }
+}
+
 
 window.addEventListener("load", () => {
   let form = document.getElementById("gameForm");
   let source = document.getElementById('resultBoxTemplate');
   resultTemplate = Handlebars.compile(source.innerHTML);
   form.addEventListener("submit", (event) => {
+    registeredPlayers = getRegisteredPlayers();
     event.preventDefault();
     validateAndSubmit();
   });
