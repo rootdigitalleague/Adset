@@ -159,6 +159,16 @@ td {
   left: -9999px;
 }
 
+input[type="checkbox"]:checked + label > img {
+  background-color: goldenrod;
+}
+
+nput[type="checkbox"] + label > img {
+  border: 1px rgb(0, 0, 0);
+  padding: 5px;
+  transition: 500ms all;
+}
+
 input[type="radio"]:checked + label > img {
   background-color: goldenrod;
 }
