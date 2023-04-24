@@ -1,0 +1,347 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Digital League Game Submission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="img/vagrant.ico">
+  <link rel="apple-touch-icon" href="img/vagrant.png">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/gameSubmission.css">
+  <link rel="stylesheet" href="css/auto-complete.css">
+  <meta name="theme-color" content="#fafafa">
+</head>
+<body>
+<form name="digitalLeagueGame" id="gameForm" autocomplete="off" >
+  <input type="hidden" name="First Player Game Score" id="First Player Game Score" value="0"/>
+  <input type="hidden" name="Second Player Game Score" id="Second Player Game Score" value="0"/>
+  <input type="hidden" name="Third Player Game Score" id="Third Player Game Score" value="0"/>
+  <input type="hidden" name="Fourth Player Game Score" id="Fourth Player Game Score" value="0"/>
+  <h1 class="topBanner">Digital League Game Submission</h1>
+  <ul id="errors" class="errors">
+  </ul>
+  <div class="players">
+    <table id="players">
+      <thead>
+      <tr>
+        <td class="header">Player Order</td>
+        <td class="header">Player Name</td>
+        <td class="header">Faction</td>
+        <td class="header">Game Score</td>
+        <td class="header">League Score</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr id="player1">
+        <td><label class="name" for="First Player">First Player</label></td>
+        <td><input id="playerName1" name="First Player" type="text" class="suggest" required /></td>
+        <td><select required class="factionSelect" id="First Player Faction" name="First Player Faction" onchange="onFactionSelect('player1')">
+          <option value="">--Select Faction--</option>
+          <option value="Eyrie Dynasties">Eyrie Dynasties</option>
+          <option value="Lizard Cult">Lizard Cult</option>
+          <option value="Marquise de Cat">Marquise de Cat</option>
+          <option value="Riverfolk">Riverfolk</option>
+          <option value="Woodland Alliance">Woodland Alliance</option>
+          <option value="Vagabond (Adventurer)">Vagabond (Adventurer)</option>
+          <option value="Vagabond (Arbiter)">Vagabond (Arbiter)</option>
+          <option value="Vagabond (Harrier)">Vagabond (Harrier)</option>
+          <option value="Vagabond (Ranger)">Vagabond (Ranger)</option>
+          <option value="Vagabond (Ronin)">Vagabond (Ronin)</option>
+          <option value="Vagabond (Scoundrel)">Vagabond (Scoundrel)</option>
+          <option value="Vagabond (Thief)">Vagabond (Thief)</option>
+          <option value="Vagabond (Tinker)">Vagabond (Tinker)</option>
+          <option value="Vagabond (Vagrant)">Vagabond (Vagrant)</option>
+          <option value="Underground Duchy" >Underground Duchy</option>
+          <option value="Corvid Conspiracy" >Corvid Conspiracy</option>
+          <option value="Keepers in Iron" disabled>Keepers in Iron</option>
+          <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
+        </select>
+        </td>
+        <td>
+          <label class="domSelect" for="playerDom1Select">Dominance</label><input id="playerDom1Select" type="checkbox" onchange="onDomSelect('player1')">
+          <span class="points" id="player1Points"><label for="playerScore1">Score:</label><input id="playerScore1" type="number" min="0" max="50" maxlength="2" size="2"/></span>
+          <span class="dom" id="player1Dom" style="display: none"><label for="playerDomSuit1">Suit:</label>
+      <select id="playerDomSuit1">
+        <option value="Bird">Bird</option>
+        <option value="Bunny">Bunny</option>
+        <option value="Fox">Fox</option>
+        <option value="Mouse">Mouse</option>
+      </select>
+    </span>
+          <span class="coalition" id="player1Coalition" style="display: none"><label for="player1CoalitionPartner">Partner:</label>
+      <select id="player1CoalitionPartner">
+         <option value="player2">Second Player</option>
+         <option value="player3">Third Player</option>
+         <option value="player4">Fourth Player</option>
+      </select>
+    </span>
+        </td>
+        <td>
+          <select id="First Player League Score" name="First Player League Score">
+            <option value="0">0</option>
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+          </select>
+        </td>
+      </tr>
+      <tr id="player2">
+        <td><label class="name" for="Second Player">Second Player</label></td>
+        <td> <input id="playerName2" class="suggest" name="Second Player" type="text" required/></td>
+        <td><select required class="factionSelect" id="Second Player Faction" name="Second Player Faction" onchange="onFactionSelect('player2')">
+          <option value="">--Select Faction--</option>
+          <option value="Eyrie Dynasties">Eyrie Dynasties</option>
+          <option value="Lizard Cult">Lizard Cult</option>
+          <option value="Marquise de Cat">Marquise de Cat</option>
+          <option value="Riverfolk">Riverfolk</option>
+          <option value="Woodland Alliance">Woodland Alliance</option>
+          <option value="Vagabond (Adventurer)">Vagabond (Adventurer)</option>
+          <option value="Vagabond (Arbiter)">Vagabond (Arbiter)</option>
+          <option value="Vagabond (Harrier)">Vagabond (Harrier)</option>
+          <option value="Vagabond (Ranger)">Vagabond (Ranger)</option>
+          <option value="Vagabond (Ronin)">Vagabond (Ronin)</option>
+          <option value="Vagabond (Scoundrel)">Vagabond (Scoundrel)</option>
+          <option value="Vagabond (Thief)">Vagabond (Thief)</option>
+          <option value="Vagabond (Tinker)">Vagabond (Tinker)</option>
+          <option value="Vagabond (Vagrant)">Vagabond (Vagrant)</option>
+          <option value="Underground Duchy" >Underground Duchy</option>
+          <option value="Corvid Conspiracy" >Corvid Conspiracy</option>
+          <option value="Keepers in Iron" disabled>Keepers in Iron</option>
+          <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
+        </select></td>
+        <td><label class="domSelect" for="playerDom2Select">Dominance</label><input id="playerDom2Select" type="checkbox" onchange="onDomSelect('player2')">
+          <span class="points" id="player2Points"><label for="playerScore2">Score:</label><input id="playerScore2" maxlength="2" min="0" max="50" type="number" size="2"/></span>
+          <span class="dom" id="player2Dom" style="display: none"><label for="playerDomSuit2">Suit:</label>
+      <select id="playerDomSuit2">
+        <option value="Bird">Bird</option>
+        <option value="Bunny">Bunny</option>
+        <option value="Fox">Fox</option>
+        <option value="Mouse">Mouse</option>
+      </select></span>
+          <span class="coalition" id="player2Coalition" style="display: none"><label for="player2CoalitionPartner">Partner:</label>
+      <select id="player2CoalitionPartner">
+        <option value="player1">First Player</option>
+        <option value="player3">Third Player</option>
+        <option value="player4">Fourth Player</option>
+      </select></span>
+        </td>
+        <td>
+          <select id="Second Player League Score" name="Second Player League Score">
+            <option value="0">0</option>
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+          </select>
+        </td>
+      </tr>
+      <tr id="player3">
+        <td><label class="name" for="Third Player">Third Player</label></td>
+        <td><input id="playerName3" name="Third Player" class="suggest" type="text" required/></td>
+        <td><select required class="factionSelect" id="Third Player Faction" name="Third Player Faction" onchange="onFactionSelect('player3')">
+          <option value="">--Select Faction--</option>
+          <option value="Eyrie Dynasties">Eyrie Dynasties</option>
+          <option value="Lizard Cult">Lizard Cult</option>
+          <option value="Marquise de Cat">Marquise de Cat</option>
+          <option value="Riverfolk">Riverfolk</option>
+          <option value="Woodland Alliance">Woodland Alliance</option>
+          <option value="Vagabond (Adventurer)">Vagabond (Adventurer)</option>
+          <option value="Vagabond (Arbiter)">Vagabond (Arbiter)</option>
+          <option value="Vagabond (Harrier)">Vagabond (Harrier)</option>
+          <option value="Vagabond (Ranger)">Vagabond (Ranger)</option>
+          <option value="Vagabond (Ronin)">Vagabond (Ronin)</option>
+          <option value="Vagabond (Scoundrel)">Vagabond (Scoundrel)</option>
+          <option value="Vagabond (Thief)">Vagabond (Thief)</option>
+          <option value="Vagabond (Tinker)">Vagabond (Tinker)</option>
+          <option value="Vagabond (Vagrant)">Vagabond (Vagrant)</option>
+          <option value="Underground Duchy" >Underground Duchy</option>
+          <option value="Corvid Conspiracy" >Corvid Conspiracy</option>
+          <option value="Keepers in Iron" disabled>Keepers in Iron</option>
+          <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
+        </select></td>
+        <td>
+          <label class="domSelect" for="playerDom3Select">Dominance</label><input id="playerDom3Select" type="checkbox" onchange="onDomSelect('player3')">
+          <span class="points" id="player3Points"><label for="playerScore3">Score:</label><input id="playerScore3" type="number" min="0" max="50" maxlength="2" size="2"/></span>
+          <span class="dom" id="player3Dom" style="display: none"><label for="playerDomSuit3">Suit:</label>
+      <select id="playerDomSuit3">
+        <option value="Bird">Bird</option>
+        <option value="Bunny">Bunny</option>
+        <option value="Fox">Fox</option>
+        <option value="Mouse">Mouse</option>
+      </select></span>
+          <span class="coalition" id="player3Coalition" style="display: none"><label for="player3CoalitionPartner">Partner:</label><select id="player3CoalitionPartner"><option value="player1">First Player</option><option value="player2">Second Player</option><option value="player4">Fourth Player</option></select></span>
+        </td>
+        <td>
+          <select id="Third Player League Score" name="Third Player League Score">
+            <option value="0">0</option>
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+          </select>
+        </td>
+      </tr>
+      <tr id="player4">
+        <td>
+          <label class="name" for="Fourth Player">Fourth Player</label></td>
+        <td><input id="playerName4" class="suggest" name="Fourth Player" type="text" required/></td>
+        <td><select required class="factionSelect" id="Fourth Player Faction" name="Fourth Player Faction" onchange="onFactionSelect('player4')">
+          <option value="">--Select Faction--</option>
+          <option value="Eyrie Dynasties">Eyrie Dynasties</option>
+          <option value="Lizard Cult">Lizard Cult</option>
+          <option value="Marquise de Cat">Marquise de Cat</option>
+          <option value="Riverfolk">Riverfolk</option>
+          <option value="Woodland Alliance">Woodland Alliance</option>
+          <option value="Vagabond (Adventurer)">Vagabond (Adventurer)</option>
+          <option value="Vagabond (Arbiter)">Vagabond (Arbiter)</option>
+          <option value="Vagabond (Harrier)">Vagabond (Harrier)</option>
+          <option value="Vagabond (Ranger)">Vagabond (Ranger)</option>
+          <option value="Vagabond (Ronin)">Vagabond (Ronin)</option>
+          <option value="Vagabond (Scoundrel)">Vagabond (Scoundrel)</option>
+          <option value="Vagabond (Thief)">Vagabond (Thief)</option>
+          <option value="Vagabond (Tinker)">Vagabond (Tinker)</option>
+          <option value="Vagabond (Vagrant)">Vagabond (Vagrant)</option>
+          <option value="Underground Duchy" >Underground Duchy</option>
+          <option value="Corvid Conspiracy" >Corvid Conspiracy</option>
+          <option value="Keepers in Iron" disabled>Keepers in Iron</option>
+          <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
+        </select></td>
+        <td> <label class="domSelect" for="playerDom4Select">Dominance</label><input id="playerDom4Select" type="checkbox" onchange="onDomSelect('player4')">
+          <span class="points" id="player4Points"><label for="playerScore4">Score:</label><input id="playerScore4" type="number"  min="0" max="50" size="2"/></span>
+          <span class="dom" id="player4Dom" style="display: none"><label for="playerDomSuit4">Suit:</label>
+      <select id="playerDomSuit4">
+        <option value="Bird">Bird</option>
+        <option value="Bunny">Bunny</option>
+        <option value="Fox">Fox</option>
+        <option value="Mouse">Mouse</option>
+      </select>
+    </span>
+          <span class="coalition" id="player4Coalition" style="display: none"><label for="player4CoalitionPartner">Partner:</label>
+      <select id="player4CoalitionPartner">
+        <option value="player1">First Player</option>
+        <option value="player2">Second Player</option>
+        <option value="player3">Third Player</option>
+      </select>
+    </span>
+        </td>
+        <td>
+          <select id="Fourth Player League Score" name="Fourth Player League Score">
+            <option value="0.0">0</option>
+            <option value="0.5">0.5</option>
+            <option value="1.0">1</option>
+          </select>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="gameOptions">
+    <h3>Game Options</h3>
+    <div>
+      <span class="Options">Timing:</span>
+      <input name="Timing" class="input-hidden" type="radio" id="Async"  checked value="Async"/>
+      <label for="Async"><img src="img/async.png" alt="Async"></label>
+      <input name="Timing" type="radio" class="input-hidden" id="Live" value="Live"/>
+      <label for="Live"><img src="img/live.png"  alt="Live"></label>
+      <span class="Options">Deck:</span>
+      <input name="Deck" type="radio" class="input-hidden" id="ExilesAndPartisans" checked value="E&P"/>
+      <label for="ExilesAndPartisans"><img src="img/ExilesAndPartisansDeck.gif" alt="Exiles & Partisans"></label>
+      <input name="Deck" type="radio" class="input-hidden" id="Base" value="Base"/>
+      <label for="Base"><img src="img/baseDeck.gif" alt="Base Deck"></label>
+      <span class="Options">Undrafted:</span>
+      <select required class="factionSelect" id="Unselected Faction" name="Unselected Faction">
+        <option value="">--Select Faction--</option>
+        <option value="Eyrie Dynasties">Eyrie Dynasties</option>
+        <option value="Lizard Cult">Lizard Cult</option>
+        <option value="Marquise de Cat">Marquise de Cat</option>
+        <option value="Riverfolk">Riverfolk</option>
+        <option value="Woodland Alliance">Woodland Alliance</option>
+        <option value="Vagabond (Adventurer)">Vagabond (Adventurer)</option>
+        <option value="Vagabond (Arbiter)">Vagabond (Arbiter)</option>
+        <option value="Vagabond (Harrier)">Vagabond (Harrier)</option>
+        <option value="Vagabond (Ranger)">Vagabond (Ranger)</option>
+        <option value="Vagabond (Ronin)">Vagabond (Ronin)</option>
+        <option value="Vagabond (Scoundrel)">Vagabond (Scoundrel)</option>
+        <option value="Vagabond (Thief)">Vagabond (Thief)</option>
+        <option value="Vagabond (Tinker)">Vagabond (Tinker)</option>
+        <option value="Vagabond (Vagrant)">Vagabond (Vagrant)</option>
+        <option value="Underground Duchy" >Underground Duchy</option>
+        <option value="Corvid Conspiracy" >Corvid Conspiracy</option>
+        <option value="Keepers in Iron" disabled>Keepers in Iron</option>
+        <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
+      </select>
+    </div>
+    <div>
+      <span class="Options map">Map:</span>
+      <input name="Map" class="input-hidden" type="radio" id="Autumn"  checked value="Autumn" onclick="onMapSelect(this)"/>
+      <label for="Autumn"><img src="img/autumn.jpg" class="map" alt="Autumn"></label>
+      <input name="Map" type="radio" class="input-hidden" id="Winter" value="Winter" onclick="onMapSelect(this)"/>
+      <label for="Winter"><img src="img/winter.jpg" class="map" alt="Winter"></label>
+      <input name="Map"  class="input-hidden" type="radio" id="Lake" value="Lake" onclick="onMapSelect(this)">
+      <label for="Lake"><img src="img/lake.png" class="map" alt="Lake"></label>
+      <input name="Map"  class="input-hidden" type="radio" id="Mountain" value="Mountain" onclick="onMapSelect(this)">
+      <label for="Mountain"><img src="img/mountain.png" class="map" alt="Mountain"></label>
+      <span class="Options"></span>
+      <input name="Clearing Distribution" class="input-hidden" type="checkbox" id="Random" value="Random">
+      <label  title="Clearing Distribution" for="Random"><img src="img/random-clearing.png"  alt="Random"></label>
+    </div>
+  </div>
+  <div id="results-proof">
+    <label for="Discord Link">Discord Link:</label><input id="Discord Link" name="Discord Link" type="text"/><br/>
+    <!--<label for="victoryFile">Victory Screen:</label><input id="victoryFile" name="victoryFile" type="file"/><br/>
+    <input type="hidden" id="victoryFileAsString" name="victoryFileAsString"/>-->
+  </div>
+  <button class="smallBox" id="formSubmit">Submit</button>
+  <br />
+  <a href="/DigitalLeagueEntryForm/LeaderBoards.html">Leader Boards</a>
+  <br />
+  <a href="/DigitalLeagueEntryForm/FactionStats.html">Faction Stats</a>
+  <br />
+  <a href="https://discord.com/channels/476234833572397056/946156625469800469">Digital League Discord Discussion</a>
+  <br />
+  <div>
+    <a style="font-style: italic; font-size: smaller; display: block" href="javascript:toggleRules()">League Rules</a>
+    <ul id="rules" class="rules" style="display: none">
+      <li>Games can be either live or async, but must include 4 players</li>
+      <li>All game business including table talk must take place within the game thread in the root-lfg or in app chat (no private chat allowed)</li>
+      <li>Factions, maps and vagabonds are all determined randomly: factions in-app, the others by dice bot rolls in the game thread, e.g. -roll 2 (map), -roll 3, 6 or 9 (vagabond)</li>
+      <li>Games are forfeit (don’t count) if any player is replaced by AI</li>
+      <li>Two-way coalitions are allowed, three-way coalitions are banned</li>
+      <li>Player league scores are recorded as 1=win, .5=coalition win, 0=loss</li>
+    </ul>
+  </div>
+
+  <div id="resultsBox">
+    <div id ="gameOptsConfirmation">
+      <img id="AsyncConfirm" src="img/async.png"  alt="Async"/>
+      <img id="LiveConfirm" src="img/live.png" alt="Live" />
+      <img id="AutumnConfirm" src="img/autumn.jpg"  class="map" alt="Autumn"/>
+      <img id="WinterConfirm" src="img/winter.jpg" class="map" alt="Winter" />
+      <img id="LakeConfirm" src="img/lake.png" class="map" alt="Lake"/>
+      <img id="MountainConfirm" src="img/mountain.png" class="map" alt="Mountain" />
+      <img id="BaseConfirm" src="img/baseDeck.gif" alt="Base Deck" />
+      <img id="E&PConfirm" src="img/ExilesAndPartisansDeck.gif" alt="Exiles & Partisans" />
+    </div>
+    <div id= "confirmButtons" class="buttons" style="clear: left">
+      <a id="confirmationDiscordLink" target="_blank" href="">Discord Report Link</a><br/>
+      <button type="button" id="confirm">Confirm</button><button type="button" id="cancel">cancel</button>
+    </div>
+  </div>
+  <div id="formShield" class="shield"></div>
+</form>
+
+<script id="resultBoxTemplate" type="text/x-handlebars-template">
+  <div><span class="playerName">Player {{idx}}</span></div>
+  <img id="player{{idx}}FactionImg"  src="img/{{factionImage}}"/>
+  <img id="player{{idx}}LeagueTrophy" src="img/trophy.svg" class="{{winner}}"/>
+  <div class="score">
+    <span id="player{{idx}}ScoreResult">{{points}}</span>
+    <img id="player{{idx}}CoalitionResult" class="{{coalition}}" src="img/{{coalitionPartnerImage}}">
+    <img id="player{{idx}}DomResult" class="{{dom}}" src="img/{{domImage}}">
+  </div>
+  <div><span id="player{{idx}}NameResult" class="playerName {{highlight}}">{{playerName}}</span></div>
+</script>
+<script src="js/vendor/handlebars.min-v4.7.7.js" type="text/javascript"></script>
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script type="module" src="js/vendor/auto-complete.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/gameSubmission.js"></script>
+<script type="module" src="js/auto-complete.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxN-BfGk_NrEaKMNC3cWlISDyw4wqRkb-VsYRDZ3zd2U5E_eaTEbvxzdK5wY1jvPNVC/exec";
+const GOOGLE_SHEET_URL ="https://script.google.com/macros/s/AKfycbyklsiV4-HxLXcJf6Z8BVFOJWN0qFwlJ6S4ai-khZCk-W3PbVIoMB6XamoKKAYs0Urr/exec";
 const players = ['player1', 'player2', 'player3', 'player4'];
 const factionImages = {
   'Eyrie Dynasties':'Eyrie_Warrior.png',
@@ -46,15 +46,25 @@ const registerServiceWorker = async () => {
 
 registerServiceWorker();
 
+function onMapSelect(e){
+  let clearingDist = document.getElementById('Random');
+  if(e.value == "Winter"){
+    clearingDist.checked = true;
+    clearingDist.disabled = true;
+  } else{
+    clearingDist.disabled = false;
+  }
+}
+
 function onFactionSelect(player){
-   let tr = document.getElementById(player);
-   let domLabel = tr.getElementsByClassName('domSelect')[0];
-   if (isVagabond(player)){
-      domLabel.textContent = 'Coalition';
-   } else{
-      domLabel.textContent = 'Dominance';
-   }
-   onDomSelect(player);
+  let tr = document.getElementById(player);
+  let domLabel = tr.getElementsByClassName('domSelect')[0];
+  if (isVagabond(player)){
+    domLabel.textContent = 'Coalition';
+  } else{
+    domLabel.textContent = 'Dominance';
+  }
+  onDomSelect(player);
 }
 
 function onDomSelect(player){
@@ -101,7 +111,7 @@ function getDomSelection(player){
 }
 
 function isVagabond(player){
- return getSelectedFaction(player).startsWith('Vagabond');
+  return getSelectedFaction(player).startsWith('Vagabond');
 }
 
 function isPlayerInCoalition(player){
@@ -179,11 +189,11 @@ function validatePlayerScore(id){
     addError(getPlayerDisplayName(id) + " needs a score!");
   }
   if(isDom && !isPlayerInCoalition(id)){
-     players.forEach((playerId)=>{
-       if(playerId !== id && isDomSelected(playerId) && getDomSelection(playerId) === getDomSelection(id) ){
-         addError(getPlayerDisplayName(id) + " and "+ getPlayerDisplayName(playerId) + " cannot have the same Dominance Suit Selected!" );
-       }
-     })
+    players.forEach((playerId)=>{
+      if(playerId !== id && isDomSelected(playerId) && getDomSelection(playerId) === getDomSelection(id) ){
+        addError(getPlayerDisplayName(id) + " and "+ getPlayerDisplayName(playerId) + " cannot have the same Dominance Suit Selected!" );
+      }
+    })
   }
   if(isPlayerInCoalition(id) && isVagabond(id) ){
     let partnerId = findPartnerId(id);
@@ -201,13 +211,13 @@ function validatePlayerScore(id){
     addError(getPlayerDisplayName(id) + "  can not be the partner in two coalitions!");
   }
   if(tourneyScore === 1.0){
-     if(score < 30 && ! isDom) {
-       addError(getPlayerDisplayName(id) + " must have at least 30 points or successful Dominance! or adjust their League Score.");
-     } else {
-       if(isPlayerInCoalition(id)){
-         addError(getPlayerDisplayName(id) + " should either have 0.5 League Score or not be part of a coalition!");
-       }
-     }
+    if(score < 30 && ! isDom) {
+      addError(getPlayerDisplayName(id) + " must have at least 30 points or successful Dominance! or adjust their League Score.");
+    } else {
+      if(isPlayerInCoalition(id)){
+        addError(getPlayerDisplayName(id) + " should either have 0.5 League Score or not be part of a coalition!");
+      }
+    }
   } else if(tourneyScore === 0.5) {
     if (!isPlayerInCoalition(id)) {
       addError(getPlayerDisplayName(+" must be in a coalition to have this League Score! adjust score or input coalition information."));
@@ -217,9 +227,9 @@ function validatePlayerScore(id){
       addError(getPlayerDisplayName(id) + " and " + getPlayerDisplayName(findPartnerId(id)) + " both need to have the same League Score!");
     }
   } else {
-      if (points > 29) {
-        addError(getPlayerDisplayName(id) + " score is too high! or their League Score is too low!");
-      }
+    if (points > 29) {
+      addError(getPlayerDisplayName(id) + " score is too high! or their League Score is too low!");
+    }
   }
 }
 
@@ -236,10 +246,10 @@ function validateAndSubmit(){
   players.forEach(validatePlayerScore);
   validateLeagueScore();
   if(isEmptyErrors()){
-    document.getElementById("Player 1 Game Score").value = calculatePlayerScore(players[0]);
-    document.getElementById("Player 2 Game Score").value = calculatePlayerScore(players[1]);
-    document.getElementById("Player 3 Game Score").value = calculatePlayerScore(players[2]);
-    document.getElementById("Player 4 Game Score").value = calculatePlayerScore(players[3]);
+    document.getElementById("First Player Game Score").value = calculatePlayerScore(players[0]);
+    document.getElementById("Second Player Game Score").value = calculatePlayerScore(players[1]);
+    document.getElementById("Third Player Game Score").value = calculatePlayerScore(players[2]);
+    document.getElementById("Fourth Player Game Score").value = calculatePlayerScore(players[3]);
     document.getElementById('errors').style.display = 'none';
     document.getElementById("formSubmit").disabled = true;
     confirmResults(sendData)
@@ -256,7 +266,7 @@ function getPlayerIndex(player){
 function getPlayerResults(player){
   let leagueScore = findTourneyScore(player)
   let playerResults = {dom:'hidden', playerName:getPlayerName(player), idx: getPlayerIndex(player),
-      coalition:'hidden', factionImage:factionImages[getSelectedFaction(player)]};
+    coalition:'hidden', factionImage:factionImages[getSelectedFaction(player)]};
   let tr = document.getElementById(player);
   if(isDomSelected(player) && !isCoalition(player)){
     playerResults.dom = 'dom';
@@ -264,7 +274,7 @@ function getPlayerResults(player){
   }else if(isDomSelected(player)){
     playerResults.coalition = 'coalition'
     let partner = findPartnerId(player);
-     playerResults.coalitionPartnerImage = factionImages[getSelectedFaction(partner)];
+    playerResults.coalitionPartnerImage = factionImages[getSelectedFaction(partner)];
   }else{
     playerResults.points = findPoints(player);
   }
@@ -318,11 +328,11 @@ function confirmResults(confirmCallBack){
   confirm.onclick = confirmCallBack;
   let cancel = document.getElementById('cancel');
   cancel.onclick = function() {
-      confirmWindow.style.display = 'none';
-      shieldDiv.style.display = 'none';
-      document.getElementById("formSubmit").disabled = false;
-    }
+    confirmWindow.style.display = 'none';
+    shieldDiv.style.display = 'none';
+    document.getElementById("formSubmit").disabled = false;
   }
+}
 
 function emptyAllErrors(){
   document.getElementById('errors').innerHTML = "";
@@ -373,26 +383,26 @@ function sendData(){
       .replace(/^.+,/, '');
     let fileInput = document.getElementById('victoryFile');
     fileInput.remove(); */
-    const fd = new FormData(document.getElementById('gameForm'));
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener("load", (event)=>{
-      alert("Game submitted");
-      console.log(event);
-      document.getElementById('gameForm').reset();
-      players.forEach(function(player){
-        onDomSelect(player);
-        onFactionSelect(player);
-      });
-      hideConfirmationWindow();
+  const fd = new FormData(document.getElementById('gameForm'));
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener("load", (event)=>{
+    alert("Game submitted");
+    console.log(event);
+    document.getElementById('gameForm').reset();
+    players.forEach(function(player){
+      onDomSelect(player);
+      onFactionSelect(player);
     });
-    xhr.addEventListener("err", (event)=>{
-      alert("Error data not saved!" + event);
-      hideConfirmationWindow()
-    })
-    xhr.open("POST", GOOGLE_SHEET_URL );
-    xhr.send(fd);
- /* }
-  reader.readAsDataURL(uploadFile.files[0]);*/
+    hideConfirmationWindow();
+  });
+  xhr.addEventListener("err", (event)=>{
+    alert("Error data not saved!" + event);
+    hideConfirmationWindow()
+  })
+  xhr.open("POST", GOOGLE_SHEET_URL );
+  xhr.send(fd);
+  /* }
+   reader.readAsDataURL(uploadFile.files[0]);*/
 }
 
 function hideConfirmationWindow(){
@@ -414,11 +424,11 @@ function toggleRules(){
 }
 
 window.addEventListener("load", () => {
- let form = document.getElementById("gameForm");
- let source = document.getElementById('resultBoxTemplate');
- resultTemplate = Handlebars.compile(source.innerHTML);
- form.addEventListener("submit", (event) => {
+  let form = document.getElementById("gameForm");
+  let source = document.getElementById('resultBoxTemplate');
+  resultTemplate = Handlebars.compile(source.innerHTML);
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
     validateAndSubmit();
- });
+  });
 });
