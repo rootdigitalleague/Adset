@@ -1,12 +1,19 @@
+
 {
-  "short_name": "",
-  "name": "",
+  "short_name": "Root Digital  League",
+  "name": "Root Digital League Adset",
+  "description": "Root Digital League game reports and leaderboards",
   "icons": [{
-    "src": "icon.png",
+    "src": "img/crow.webp",
     "type": "image/png",
-    "sizes": "192x192"
-  }],
-  "start_url": "/?utm_source=homescreen",
+    "sizes": "80x80",
+    "purpose": "any"
+    }],
+  "orientation": "landscape-primary",
+  "scope":"/RootDigitalLeague//?utm_source=homescreen",
+  "id": "/RootDigitalLeague/?utm_source=homescreen",
+  "start_url": "/RootDigitalLeague/gameSubmission.html?utm_source=homescreen",
+  "display": "fullscreen",
   "background_color": "#fafafa",
   "theme_color": "#fafafa"
 }

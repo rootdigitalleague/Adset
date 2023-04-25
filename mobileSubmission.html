@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Root Digital League Game Submission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="img/crow.webp">
+  <link rel="apple-touch-icon" href="img/vagrant.png">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/mobileGameSubmission.css">
+  <link rel="stylesheet" href="css/auto-complete.css">
+  <meta name="theme-color" content="#fafafa">
+</head>
+<body>
+<form name="digitalLeagueGame" id="gameForm" autocomplete="off" >
+  <input type="hidden" name="First Player Game Score" id="First Player Game Score" value="0"/>
+  <input type="hidden" name="Second Player Game Score" id="Second Player Game Score" value="0"/>
+  <input type="hidden" name="Third Player Game Score" id="Third Player Game Score" value="0"/>
+  <input type="hidden" name="Fourth Player Game Score" id="Fourth Player Game Score" value="0"/>
+  <h1 class="topBanner">Digital League </h1><h1>Game Submission</h1>
+  <ul id="errors" class="errors">
+  </ul>
+  <div id="gameOptions">
+    <h3>Game Options:</h3>
+    <div>
+      <span class="Options">Timing:</span>
+      <input name="Timing" class="input-hidden" type="radio" id="Async"  checked value="Async"/>
+      <label for="Async"><img src="img/async.png" alt="Async"></label>
+      <input name="Timing" type="radio" class="input-hidden" id="Live" value="Live"/>
+      <label for="Live"><img src="img/live.png"  alt="Live"></label>
+    </div>
+    <div>
+      <span class="Options">Deck:</span>
+      <input name="Deck" type="radio" class="input-hidden" id="ExilesAndPartisans" checked value="E&P"/>
+      <label for="ExilesAndPartisans"><img src="img/ExilesAndPartisansDeck.gif" alt="Exiles & Partisans"></label>
+      <input name="Deck" type="radio" class="input-hidden" id="Base" value="Base"/>
+      <label for="Base"><img src="img/baseDeck.gif" alt="Base Deck"></label>
+    </div>
+    <div>
+      <span class="Options map">Map:</span>
+      <input name="Map" class="input-hidden" type="radio" id="Autumn"  checked value="Autumn" onclick="gameSubmission.onMapSelect(this)"/>
+      <label for="Autumn"><img src="img/autumn.jpg" class="map" alt="Autumn"></label>
+      <input name="Map" type="radio" class="input-hidden" id="Winter" value="Winter" onclick="gameSubmission.onMapSelect(this)"/>
+      <label for="Winter"><img src="img/winter.jpg" class="map" alt="Winter"></label>
+      <input name="Map"  class="input-hidden" type="radio" id="Lake" value="Lake" onclick="gameSubmission.onMapSelect(this)">
+      <label for="Lake"><img src="img/lake.png" class="map" alt="Lake"></label>
+      <input name="Map"  class="input-hidden" type="radio" id="Mountain" value="Mountain" onclick="gameSubmission.onMapSelect(this)">
+      <label for="Mountain"><img src="img/mountain.png" class="map" alt="Mountain"></label>
+      <span class="Options"></span>
+      <input name="Clearing Distribution" class="input-hidden" type="checkbox" id="Random" value="Random">
+      <label  title="Clearing Distribution" for="Random"><img src="img/random-clearing.png"  alt="Random"></label>
+    </div>
+    <div>
+      <span class="Options">Undrafted:</span>
+      <select class="factionSelect" id="Unselected Faction" name="Unselected Faction">
+        <option value="">--Select Faction--</option>
+        <option value="Corvid Conspiracy" >Corvid Conspiracy</option>
+        <option value="Eyrie Dynasties">Eyrie Dynasties</option>
+        <option value="Lizard Cult">Lizard Cult</option>
+        <option value="Marquise de Cat">Marquise de Cat</option>
+        <option value="Underground Duchy" >Underground Duchy</option>
+        <option value="Riverfolk">Riverfolk</option>
+        <option value="Vagabond (Adventurer)">Vagabond (Adventurer)</option>
+        <option value="Vagabond (Arbiter)">Vagabond (Arbiter)</option>
+        <option value="Vagabond (Harrier)">Vagabond (Harrier)</option>
+        <option value="Vagabond (Ranger)">Vagabond (Ranger)</option>
+        <option value="Vagabond (Ronin)">Vagabond (Ronin)</option>
+        <option value="Vagabond (Scoundrel)">Vagabond (Scoundrel)</option>
+        <option value="Vagabond (Thief)">Vagabond (Thief)</option>
+        <option value="Vagabond (Tinker)">Vagabond (Tinker)</option>
+        <option value="Vagabond (Vagrant)">Vagabond (Vagrant)</option>
+        <option value="Woodland Alliance">Woodland Alliance</option>
+        <option value="Keepers in Iron" disabled>Keepers in Iron</option>
+        <option value="Lord of the Hundreds" disabled>Lord of the Hundreds</option>
+      </select>
+    </div>
+  </div>
+  <div id="results-proof">
+    <label for="Discord Link">Discord Link:</label><input id="Discord Link" name="Discord Link" type="text"/><br/>
+    <!--<label for="victoryFile">Victory Screen:</label><input id="victoryFile" name="victoryFile" type="file"/><br/>
+    <input type="hidden" id="victoryFileAsString" name="victoryFileAsString"/>-->
+  </div>
+
+  <div id="resultsBox">
+  <div><span class="playerName">Player 1</span></div>
+  <img id="player1FactionImg"  src="img/uknown_faction.png"/>
+  <div class="score">
+    <span id="player1ScoreResult"></span>
+  </div>
+  <div><span id="player1NameResult" class="playerName {{highlight}}">{{playerName}}</span></div>
+  <div><span class="playerName">Player 2</span></div>
+  <img id="player2FactionImg"  src="img/uknown_faction.png"/>
+  <div class="score">
+    <span id="player2ScoreResult"></span>
+  </div>
+  <div><span id="player2NameResult" class="playerName {{highlight}}">{{playerName}}</span></div>
+  <div><span class="playerName">Player 3</span></div>
+  <img id="player3FactionImg"  src="img/uknown_faction.png"/>
+  <div class="score">
+    <span id="player3ScoreResult"></span>
+  </div>
+  <div><span id="player3NameResult" class="playerName {{highlight}}">{{playerName}}</span></div>
+  <div><span class="playerName">Player 4</span></div>
+  <img id="player4FactionImg"  src="img/uknown_faction.png"/>
+  <div class="score">
+    <span id="player4ScoreResult"></span>
+  </div>
+  <div><span id="player4NameResult" class="playerName {{highlight}}">{{playerName}}</span></div>
+  </div>
+</form>
+</body>
+</html>
