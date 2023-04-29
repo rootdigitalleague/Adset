@@ -6,26 +6,58 @@
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <meta property="og:title" content="">
   <meta property="og:type" content="">
   <meta property="og:url" content="">
   <meta property="og:image" content="">
-
   <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="icon" type="image/x-icon" href="img/crow.webp">
+  <link rel="apple-touch-icon" href="img/crow.webp">
+  <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-
+  <link rel="stylesheet" href="css/shared.css">
   <meta name="theme-color" content="#fafafa">
+  <script type="text/javascript">
+    function toggleRules(){
+      let rules = document.getElementById('rules');
+      if(rules.style.display !== 'block'){
+        rules.style.display = 'block';
+      }else{
+        rules.style.display = 'none';
+      }
+    }
+  </script>
+  <style>
+    html {
+      background: #222222;
+
+    }
+  </style>
 </head>
 
 <body>
-
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+<div class="mainBoard">
+  <div class="banner"></div>
+<ul style="list-style-type: none">
+  <li><a href="https://forms.gle/SeNmvJQrA1aUGn6D8">Register Here</a></li>
+  <li><a href="./gameSubmission.html">Game Submission Form</a> </li>
+  <li><a href="./LeaderBoards.html">Leader Boards</a></li>
+  <li><a href="./FactionStats.html">Faction Stats</a></li>
+  <li><a href="https://discord.com/channels/476234833572397056/946156625469800469">Digital League Discord Discussion</a></li>
+  <li>
+  <a style="font-style: italic; font-size: smaller; display: block" href="javascript:toggleRules()">League Rules</a>
+  <ul id="rules" class="rules" style="display: none">
+    <li>Games can be either live or async, but must include 4 players</li>
+    <li>All game business including table talk must take place within the game thread in the root-lfg or in app chat (no private chat allowed)</li>
+    <li>Factions, maps and vagabonds are all determined randomly: factions in-app, the others by dice bot rolls in the game thread, e.g. -roll 2 (map), -roll 3, 6 or 9 (vagabond)</li>
+    <li>Games are forfeit (don’t count) if any player is replaced by AI</li>
+    <li>Two-way coalitions are allowed, three-way coalitions are banned</li>
+    <li>Player league scores are recorded as 1=win, .5=coalition win, 0=loss</li>
+  </ul>
+  </li>
+</ul>
+</div>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/gameSubmission.js"></script>

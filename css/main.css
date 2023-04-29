@@ -172,6 +172,15 @@ input[type="number"]{
   min-width: 2em;
 }
 
+div.banner {
+  background-image: url("../img/Digital_league.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: top center;
+  width: 830px ;
+  height: 332px;
+}
+
 div#resultsBox{
   background-image: url("../img/Small_Dark_Box.png");
   background-repeat: no-repeat;
