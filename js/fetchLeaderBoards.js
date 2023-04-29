@@ -1,5 +1,4 @@
-GOOGLE_SHEET_FETCH_LEADER_BOARDS = "https://script.google.com/macros/s/AKfycbytiVzUCXH6nPFOc39qQc3Ho95zN66gUZOwnC4YYjytbj0m0Bux-EofsOg-rIE4JMwMeg/exec";
-GOOGLE_SHEET_FETCH_LEADER_BOARDS_DEV = "https://script.google.com/macros/s/AKfycbymJ6JpdWBTL9OaLmS0UKxl8_nUU4SoCE7YVWViw7B-nMHbAI3LHdIH33yM_v85IBQ4_Q/exec";
+GOOGLE_SHEET_FETCH_LEADER_BOARDS = "https://script.google.com/macros/s/AKfycbxlljCOqOoME2MEQthhFeSDKdBUBJe6VCY3ae2l540Hr3oSFiojFQHZMkUKLqBSQwGA/exec";
 let leaderBoardInfo = {};  // object derived from leaderBoards  where each leaderboard is mapped by name
 let leaderBoards = [];  //array all leaderboards from call to spreadsheet
 window.addEventListener("load", () => {
@@ -58,7 +57,7 @@ function createRankRow(player){
     tr.appendChild(td);
   }
   tr.onclick = function (){
-    window.location = "/DigitalLeagueEntryForm/FactionStats.html?playerName="+ encodeURIComponent(player.player);
+    window.location = "./FactionStats.html?playerName="+ encodeURIComponent(player.player);
   }
   return tr;
 }
@@ -113,7 +112,7 @@ function showFailedToLoad(e){
 
 function refreshLeaderBoardData(){
    showLoading()
-   fetch(GOOGLE_SHEET_FETCH_LEADER_BOARDS_DEV).then((response)=> response.json()).then((data)=> {
+   fetch(GOOGLE_SHEET_FETCH_LEADER_BOARDS).then((response)=> response.json()).then((data)=> {
       console.log(data);
       leaderBoards = data;
       data.forEach(function(item, index){

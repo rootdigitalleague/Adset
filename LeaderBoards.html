@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Root Digital League Leader Boards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="img/vagrant.ico">
+  <link rel="apple-touch-icon" href="img/vagrant.png">
+  <link rel="stylesheet" href="css/normalize.css">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="stylesheet" href="./css/main.css" type="text/css">
+  <link rel="stylesheet" href="./css/shared.css" type="text/css">
+  <link rel="stylesheet" href="./css/leaderboards.css" type="text/css">
+</head>
+<body>
+<div class="seasons">
+  <ul id="dummy-list" class="loading"></ul>
+<ul id="seasonsList" >
+</ul>
+</div>
+<div class="mainBoard">
+  <table class="">
+    <thead>
+      <tr>
+        <td colspan="5" ><h1 id="leaderBoardTitle">All Seasons Leader Board</h1></td>
+      </tr>
+      <tr class="columnHeaders">
+        <th>Rank</th>
+        <th>Player</th>
+        <th>Games</th>
+        <th>League<br/> Points</th>
+        <th>Win<br/> Rate</th>
+      </tr>
+    </thead>
+    <tbody id="dummy-tbody">
+    <tr><td class="loading" colspan="5"></td></tr>
+    </tbody>
+    <tbody class="rankedPlayers" id="leaguePlayers">
+    </tbody>
+  </table>
+</div>
+<ul class="menu-list">
+  <li><a href="./gameSubmission.html">Game Submission Form</a> </li>
+  <li><a href="./FactionStats.html">Faction Stats</a></li>
+  <li><a href="#" onclick="refreshLeaderBoardData()">Refresh Leader Boards</a></li>
+</ul>
+<script src="./js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="./js/fetchLeaderBoards.js"></script>
+</body>
+</html>
