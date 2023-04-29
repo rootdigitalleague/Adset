@@ -1,8 +1,6 @@
-GOOGLE_SHEET_FETCH_FACTION_STATS ="https://script.google.com/macros/s/AKfycbx6wu-N0oNQ8cqILVkz5gh4jNlNFc2UyvbLDVCrBwiG-FTyzTXTr6AZMUAD9B9tr5ND/exec";
-GOOGLE_SHEET_FETCH_FACTION_STATS_DEV = "https://script.google.com/macros/s/AKfycbytuj_i4sXJn24df-oALdLnbN8GDLsPsfEhoe9f3WsyWXWXjNqJz8LHOl4hDIuR-QN-/exec"
-GOOGLE_SHEET_FETCH_PLAYER_STATS_DEV = "https://script.google.com/macros/s/AKfycbwvfI0Ky177dOZ1CrX4WnDJcDExQezNABjnx26lYXc-z81wLP9GNvTw6RLgIXapw3xu/exec";
+GOOGLE_SHEET_FETCH_FACTION_STATS = "https://script.google.com/macros/s/AKfycbzhm1Lvtf5AEiXIswkHmLEs-WSME4rziv8ksLWOrfkaDQ5NVTlfqu9ckgU0NxnE9NsIMQ/exec";
 
-GOOGLE_SHEET_FETCH_PLAYER_STATS = "https://script.google.com/macros/s/AKfycbymDytbRz8rJl5RTRanTYGHDGIqvwrKGEonr4K0V3I_RsDg88cuWcjt9DghyoB8IRV_FQ/exec";
+GOOGLE_SHEET_FETCH_PLAYER_STATS = "https://script.google.com/macros/s/AKfycbxaRHYOzVXL6lRB-ECZUdia4Q-QXo9xYrYOzBsNoLeqy1iqjTt8L81vULDHM6840pnE/exec";
 let factionStats = {};
 window.addEventListener("load", () => {
 
@@ -15,14 +13,14 @@ window.addEventListener("load", () => {
 function updateSeasonsList(data){
   let seasons =[];
   for(const key in data){
-    if(key !== 'allTime'){
+    if(key !== 'All Seasons'){
       seasons.push(key);
     }
   }
   seasons.reverse();
   let ul = document.getElementById('seasonsList');
   ul.innerHTML = '';
-  ul.appendChild(createSeasonLi('allTime', data, true))
+  ul.appendChild(createSeasonLi('All Seasons', data, true))
   for(let i = 0; i < seasons.length; i++){
     ul.appendChild(createSeasonLi(seasons[i], data));
   }
@@ -177,7 +175,7 @@ function updatePlayerOtherStats(data){
 function loadPlayerStats(){
   let playerName = document.getElementById('playerNameLookUp').value;
   showLoading();
-  fetch(GOOGLE_SHEET_FETCH_PLAYER_STATS_DEV+"?name="+encodeURIComponent(playerName)).then((response)=> response.json()).then((data)=> {
+  fetch(GOOGLE_SHEET_FETCH_PLAYER_STATS+"?name="+encodeURIComponent(playerName)).then((response)=> response.json()).then((data)=> {
     console.log(data);
     updateFactionsStats(data);
     updatePlayerOtherStats(data)
@@ -190,14 +188,14 @@ function loadPlayerStats(){
 function refreshFactionStats(){
   showLoading()
   let playerName = document.getElementById('playerNameLookUp');
-  fetch(GOOGLE_SHEET_FETCH_FACTION_STATS_DEV).then((response)=> response.json()).then((data)=> {
+  fetch(GOOGLE_SHEET_FETCH_FACTION_STATS).then((response)=> response.json()).then((data)=> {
     console.log(data);
     factionStats = data;
     updateSeasonsList(data);
     if(playerName.value){
       loadPlayerStats();
     }else{
-      updateFactionsStats(data['allTime']);
+      updateFactionsStats(data['All Seasons']);
       showLoaded();
     }
 

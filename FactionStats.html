@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Root Digital League Faction Stats</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="img/crow.webp">
+  <link rel="stylesheet" href="css/normalize.css">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="stylesheet" href="./css/main.css" type="text/css">
+  <link rel="stylesheet" href="./css/shared.css" type="text/css">
+  <link rel="stylesheet" href="./css/faction-stats.css" type="text/css">
+  <link rel="stylesheet" href="css/auto-complete.css">
+</head>
+<body>
+<div class="seasons">
+  <ul id="dummy-list" class="loading"></ul>
+  <ul id="seasonsList" >
+  </ul>
+  <ul id="staticList">
+    <li>
+      <input id="playerNameLookUp" class="suggest" name="playerNameLookUp" type="text" placeholder="player name" style="width: 66%"/>
+      <br/>
+      <button  onclick="loadPlayerStats()">look up</button>
+    </li>
+  </ul>
+</div>
+<div class="mainBoard">
+  <table class="">
+    <thead>
+    <tr>
+      <td colspan="5" ><h1 id="factionStatsTitle">All Seasons Faction Stats</h1></td>
+    </tr>
+    <tr>
+      <th class="sortAsc">Faction</th>
+      <th style="display: none"></th>
+      <th>Games</th>
+      <th>League<br/> Points</th>
+      <th>Win<br/> Rate</th>
+    </tr>
+    </thead>
+    <tbody id="dummy-tbody">
+    <tr><td class="loading" colspan="5"></td></tr>
+    </tbody>
+    <tbody  id="factions">
+    </tbody>
+    <thead id="otherStatsHeader" style="display: none"><tr> <th class="sortAsc">Stat</th>
+      <th style="display: none"></th>
+      <th>Games</th>
+      <th>League<br/> Points</th>
+      <th>Win<br/> Rate</th></tr></thead>
+    <tbody id="otherStats">
+    <tr style="display: none"><td colspan="5"><h2>Other Stats</h2></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<ul class="menu-list">
+  <li><a href="./gameSubmission.html">Game Submission Form</a> </li>
+  <li><a href="./LeaderBoards.html">Leader Boards</a></li>
+  <li><a href="#" onclick="refreshFactionStats()">Refresh Faction Stats</a> </li>
+</ul>
+<script src="./js/vendor/modernizr-3.11.2.min.js"></script>
+<script type="module" src="js/vendor/auto-complete.js"></script>
+<script src="./js/fetchFactionStats.js"></script>
+<script type="module" src="js/auto-complete.js"></script>
+</body>
+</html>
