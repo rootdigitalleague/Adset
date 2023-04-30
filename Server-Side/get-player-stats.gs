@@ -84,7 +84,6 @@ function calculateScore(games, winRate){
   }
 }
 
-
 function getPlayerStatsRow(playerName){
   const doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
   const sheet = doc.getSheetByName("PlayerStats");

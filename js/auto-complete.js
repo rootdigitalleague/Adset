@@ -6,7 +6,7 @@ export function getRegisteredPlayers(){
   return registeredPlayers;
 }
 
-fetch(GOOGLE_SHEET_FETCH_ALL_PLAYER_NAMES).then((response)=> response.json()).then((data)=> {
+fetch(GOOGLE_SHEET_FETCH_ALL_PLAYER_NAMES, {cache: "no-cache"}).then((response)=> response.json()).then((data)=> {
   console.log(data);
   registeredPlayers = data;
   addAutoComplete(data);
