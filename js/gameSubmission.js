@@ -5,7 +5,7 @@ const factionImages = {
   'Eyrie Dynasties':'Eyrie_Warrior.png',
   'Lizard Cult':'Lizard_Cult_Warrior.png',
   'Marquise de Cat': 'Cat_Warrior.png',
-  'Riverfolk': 'Riverfolk_Warrior.png',
+  'Riverfolk Company': 'Riverfolk_Warrior.png',
   'Woodland Alliance': 'Alliance_Warrior.png',
   'Vagabond (Adventurer)': 'Vagabond_Adventurer.png',
   'Vagabond (Arbiter)': 'Vagabond_Arbiter.png',

@@ -45,6 +45,21 @@ thead > tr:last-child{
   border-bottom: solid;
 }
 
+img.image-select:hover{
+  border-radius: 1em;
+  background-image: linear-gradient(
+    -100deg,
+    rgba(255, 20, 0, 0.2),
+    rgba(255, 20, 0, 0.7) 95%,
+    rgba(255, 20, 0, 0.1)
+  );
+}
+
+ul.image-select-list {
+  display: none;
+}
+
+
 form{
   background-image: url("../img/Medium_Box.png");
   background-repeat: no-repeat;
@@ -163,7 +178,7 @@ input[type="checkbox"]:checked + label > img {
   background-color: goldenrod;
 }
 
-nput[type="checkbox"] + label > img {
+input[type="checkbox"] + label > img {
   border: 1px rgb(0, 0, 0);
   padding: 5px;
   transition: 500ms all;

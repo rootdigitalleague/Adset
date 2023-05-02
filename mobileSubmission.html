@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="site.webmanifest">
   <link rel="icon" type="image/x-icon" href="img/crow.webp">
-  <link rel="apple-touch-icon" href="img/vagrant.png">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/mobileGameSubmission.css">
   <link rel="stylesheet" href="css/auto-complete.css">
@@ -53,6 +52,40 @@
     </div>
     <div>
       <span class="Options">Undrafted:</span>
+      <div class="select-dropdown">
+        <div class="image-select-container"> <img id="undraftedFactionImg" class="image-select" src="img/uknown_faction.png" title=""/> </div>
+        <ul class="image-select-list">
+          <li>
+            <input name="undrafted" class="input-hidden" type="radio" id="undrafted-unknown"   value="" onclick="gameSubmission.onFactionSelect(this)"/>
+            <label for="undrafted-unknown"><img src="img/Corvid_Warrior.png" class="faction-meeple" alt="Corvid Conspiracy"></label>
+          </li>
+          <li>
+            <input name="undrafted" class="input-hidden" type="radio" id="undrafted-corvid"   value="Corvid Conspiracy" onclick="gameSubmission.onFactionSelect(this)"/>
+            <label for="undrafted-corvid"><img src="img/Corvid_Warrior.png" class="faction-meeple" alt="Corvid Conspiracy"></label>
+          </li>
+          <li>
+            <input name="undrafted" class="input-hidden" type="radio" id="undrafted-eyrie"  value="Eyrie Dynasties" onclick="gameSubmission.onFactionSelect(this)"/>
+            <label for="undrafted-eyrie"><img src="img/Eyrie_Warrior.png" class="faction-meeple" alt="Eyrie Dynasties></label>
+          </li>
+
+          <li class="image-opt"><img src="img/Corvid_Warrior.png" title="Corvid Conspiracy"/></li>
+          <li class="image-opt"><img src="img/Eyrie_Warrior.png" title="Eyrie Dynasties"/></li>
+          <li class="image-opt"><img src="img/Lizard_Cult_Warrior.png" title="Lizard Cult"></li>
+          <li class="image-opt"><img src="img/Cat_Warrior.png" title="Marquise de Cat"></li>
+          <li class="image-opt"><img src="img/Duchy_Warrior.png" title="Underground Duchy"></li>
+          <li class="image-opt"><img src="img/Riverfolk_Warrior.png" title="Riverfolk Company"></li>
+          <li class="image-opt"><img src="img/Vagabond_Adventurer.png" title="Vagabond (Adventurer)"></li>
+          <li class="image-opt"><img src="img/Vagabond_Arbiter.png" title="Vagabond (Arbiter)"></li>
+          <li class="image-opt"><img src="img/Vagabond_Harrier.png" title="Vagabond (Harrier)"></li>
+          <li class="image-opt"><img src="img/Vagabond_Ranger.png" title="Vagabond (Ranger)"></li>
+          <li class="image-opt"><img src="img/Vagabond_Ronin.png" title="Vagabond (Ronin)"></li>
+          <li class="image-opt"><img src="img/Vagabond_Scoundrel.png" title="Vagabond (Scoundrel)"></li>
+          <li class="image-opt"><img src="img/Vagabond_Thief.png" title="Vagabond (Thief)"></li>
+          <li class="image-opt"><img src="img/Vagabond_Tinker.png" title="Vagabond (Tinker)"></li>
+          <li class="image-opt"><img src="img/Vagabond_Vagrant.png" title="Vagabond (Vagrant)"></li>
+          <li class="image-opt"><img src="img/Alliance_Warrior.png" title="Woodland Alliance"></li>
+        </ul>
+      </div>
       <select class="factionSelect" id="Unselected Faction" name="Unselected Faction">
         <option value="">--Select Faction--</option>
         <option value="Corvid Conspiracy" >Corvid Conspiracy</option>
@@ -109,5 +142,7 @@
   <div><span id="player4NameResult" class="playerName {{highlight}}">{{playerName}}</span></div>
   </div>
 </form>
+<script type="module" src="js/mobileSubmission.js"></script>
 </body>
+
 </html>
