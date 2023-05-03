@@ -217,6 +217,9 @@ function validateAndSubmit(){
     document.getElementById("Second Player Game Score").value = calculatePlayerScore(players[1]);
     document.getElementById("Third Player Game Score").value = calculatePlayerScore(players[2]);
     document.getElementById("Fourth Player Game Score").value = calculatePlayerScore(players[3]);
+    if(document.getElementById("Random").value !== "Random"){
+      document.getElementById("Random").value = "Set";
+    }
     document.getElementById('errors').style.display = 'none';
     document.getElementById("formSubmit").disabled = true;
     confirmResults(sendData)
