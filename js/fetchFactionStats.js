@@ -76,7 +76,7 @@ function createFactionRow(faction){
   for(const key in faction){
     let td = document.createElement('td');
     if(key === 'winRate'){
-      td.innerText = formatWinRate(faction[key]);
+      td.innerText = formatWinRate(faction[key]*100);
       td.style.paddingRight = '0px';
       td.style.marginRight = '0px';
       td.style.textAlign = 'right';
