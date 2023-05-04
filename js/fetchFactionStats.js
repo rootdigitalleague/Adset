@@ -1,6 +1,6 @@
 GOOGLE_SHEET_FETCH_FACTION_STATS = "https://script.google.com/macros/s/AKfycbzhm1Lvtf5AEiXIswkHmLEs-WSME4rziv8ksLWOrfkaDQ5NVTlfqu9ckgU0NxnE9NsIMQ/exec";
 
-GOOGLE_SHEET_FETCH_PLAYER_STATS = "https://script.google.com/macros/s/AKfycbxaRHYOzVXL6lRB-ECZUdia4Q-QXo9xYrYOzBsNoLeqy1iqjTt8L81vULDHM6840pnE/exec";
+GOOGLE_SHEET_FETCH_PLAYER_STATS = "https://script.google.com/macros/s/AKfycbyMS-qgpSnBpBVMKM8v8_UKf_qIrrvZ2CJRGXvKJQ1xq49SdbHf412_6Kzs8HIsNCMf/exec";
 let factionStats = {};
 window.addEventListener("load", () => {
 

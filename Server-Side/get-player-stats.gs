@@ -42,7 +42,7 @@ function getPlayerStats(playerName){
             'name' : name,
             'gamesPlayed': stats[idx],
             'leagueScore': calculateScore(stats[idx], stats[idx+1]),
-            'winRate' : stats[idx+1] * 100
+            'winRate' : stats[idx+1]
           }
           miscStats.push(miscStat);
         }else{
@@ -51,7 +51,7 @@ function getPlayerStats(playerName){
             'faction':factionNames[i],
             'gamesPlayed': stats[idx],
             'leagueScore': calculateScore(stats[idx], stats[idx+1]),
-            'winRate' : stats[idx+1] * 100
+            'winRate' : stats[idx+1]
           }
           factions.push(faction);
         }
@@ -61,7 +61,7 @@ function getPlayerStats(playerName){
           'faction': 'Turn '+ factionNames[i],
           'gamesPlayed': stats[idx],
           'leagueScore': calculateScore(stats[idx], stats[idx+1]),
-          'winRate' : stats[idx+1] * 100
+          'winRate' : stats[idx+1]
         }
         turnOrderStats.push(turnOrderStat);
       }
