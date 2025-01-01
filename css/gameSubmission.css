@@ -182,6 +182,21 @@ input[type="number"]{
   min-width: 2em;
 }
 
+div#retired {
+    background-image: url("../img/Small_Dark_Box.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  width: 240px;
+  margin: auto;
+  position: absolute;
+  top: 40px;
+  left: 380px;
+}
+
 div#resultsBox{
   background-image: url("../img/Small_Dark_Box.png");
   background-repeat: no-repeat;
